@@ -12,3 +12,4 @@
 /home/wendel/Documentos/Estudos/C#/obj/Debug/net8.0/C#.pdb
 /home/wendel/Documentos/Estudos/C#/obj/Debug/net8.0/C#.genruntimeconfig.cache
 /home/wendel/Documentos/Estudos/C#/obj/Debug/net8.0/ref/C#.dll
+/home/wendel/Documentos/Estudos/C#/obj/Debug/net8.0/C#.sourcelink.json
