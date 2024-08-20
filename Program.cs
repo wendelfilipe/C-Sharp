@@ -1,11 +1,28 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Loop for");
+Console.WriteLine("optional paramenters");
 
-for(int i = 0, j = 0; i+j <= 20; i++, j++)
+Email email = new();
+Console.WriteLine("informe o destino");
+var destino = Console.ReadLine();
+
+Console.WriteLine("informe o titulo");
+var titulo = Console.ReadLine();
+
+Console.WriteLine("informe o assunto");
+var assunto = Console.ReadLine();
+
+email.Enviar(destino);
+
+email.Enviar(destino, titulo);
+
+email.Enviar(destino, titulo, assunto);
+
+email.Enviar(destino, assunto: assunto);
+
+public class Email 
 {
-    Console.WriteLine($"i = {i} e j = {j}");
+    public void Enviar(string destino, string titulo = "Titulo Padrão", string assunto = "Assunto Padrão")
+    {
+        Console.WriteLine($"\nPara {destino} - {titulo} \nAssunto: {assunto}");
+    }
 }
-
-Console.WriteLine("\nFim do processamento...");
-    Console.ReadKey();
-
