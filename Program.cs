@@ -1,11 +1,20 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Loop for");
+Console.WriteLine("Métodos estáticos");
 
-for(int i = 0, j = 0; i+j <= 20; i++, j++)
+Calculadora.Somar(10, 10);
+
+public static class Calculadora
+
 {
-    Console.WriteLine($"i = {i} e j = {j}");
+    public static int Somar(int n1, int n2)
+    {
+        return n1 + n2;
+    }
+
+    public static int Subtrair(int n1, int n2)
+    {
+        return n1 - n2;
+    }
 }
 
-Console.WriteLine("\nFim do processamento...");
-    Console.ReadKey();
 
