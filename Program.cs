@@ -1,11 +1,18 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Loop for");
 
-for(int i = 0, j = 0; i+j <= 20; i++, j++)
+A a1 = new A();
+a1.x = 10;
+
+A a2 = new A();
+a2.x = 20;
+
+A.y = 30;
+
+Console.WriteLine($"a1.x = {a1.x} a2.x = {a2.x} A.y = {A.y}");
+
+public class A 
 {
-    Console.WriteLine($"i = {i} e j = {j}");
+    public int x;
+    public static int y;
 }
-
-Console.WriteLine("\nFim do processamento...");
-    Console.ReadKey();
-
