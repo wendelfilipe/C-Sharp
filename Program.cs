@@ -1,11 +1,17 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Loop for");
+using C_;
 
-for(int i = 0, j = 0; i+j <= 20; i++, j++)
-{
-    Console.WriteLine($"i = {i} e j = {j}");
-}
+Console.WriteLine("Construtor estático");
 
-Console.WriteLine("\nFim do processamento...");
-    Console.ReadKey();
+Pessoa p1 = new(19,"Maria");
+
+Console.WriteLine(p1.Name + " - " + p1.Idade);
+Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+
+Pessoa p2 = new(20, "Manuel");
+
+Console.WriteLine(p2.Name + " - " + p2.Idade);
+Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+
+Console.ReadKey();
 
