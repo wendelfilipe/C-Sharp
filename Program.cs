@@ -1,11 +1,25 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Loop for");
+Console.WriteLine("Enum");
 
-for(int i = 0, j = 0; i+j <= 20; i++, j++)
+Console.WriteLine(DiasDaSemana.Segunda);
+Console.WriteLine(DiasDaSemana.Terca);
+
+int dia1 = (int)DiasDaSemana.Segunda;
+int dia2 = (int)DiasDaSemana.Terca;
+
+Console.WriteLine($"\n{DiasDaSemana.Segunda} vale : {dia1}");
+Console.WriteLine($"\n{DiasDaSemana.Terca} vale : {dia2}");
+Console.ReadKey();
+
+enum DiasDaSemana
 {
-    Console.WriteLine($"i = {i} e j = {j}");
+    Segunda,
+    Terca,
+    Quarta,
+    Quinta,
+    Sexta,
+    Sabado,
+    Domingo
+    
 }
-
-Console.WriteLine("\nFim do processamento...");
-    Console.ReadKey();
 
