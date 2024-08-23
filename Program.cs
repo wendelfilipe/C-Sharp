@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Loop for");
+Console.WriteLine("campo estatico");
 
 A a1 = new A();
 a1.x = 10;
