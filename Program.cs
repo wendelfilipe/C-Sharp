@@ -1,11 +1,24 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Loop for");
+Console.WriteLine("Try-Catch");
 
-for(int i = 0, j = 0; i+j <= 20; i++, j++)
+Console.WriteLine("\nInfome o valor de x");
+int x = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("\nInforme o valor de y");
+int y = Convert.ToInt32(Console.ReadLine());
+
+try
 {
-    Console.WriteLine($"i = {i} e j = {j}");
+    int z = x / y;
+    Console.WriteLine($"\n{x} / {y} = {z}");
+}   
+catch (Exception ex)
+{
+    Console.WriteLine("\nNão existe divisão por zero, tente outro número...");
+    Console.WriteLine($"erro: {ex.Message}");
+    Console.WriteLine($"\n Detalhes : {ex?.StackTrace?.ToString()}");
 }
-
-Console.WriteLine("\nFim do processamento...");
-    Console.ReadKey();
-
+finally
+{
+    Console.WriteLine("Processamento concluido");
+}
