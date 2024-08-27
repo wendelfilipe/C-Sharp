@@ -1,11 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Loop for");
+Console.WriteLine("Tipos anônimos");
 
-for(int i = 0, j = 0; i+j <= 20; i++, j++)
+
+var aluno = new
 {
-    Console.WriteLine($"i = {i} e j = {j}");
-}
+    Nome = "Maria",
+    Idade = 43
+};
 
-Console.WriteLine("\nFim do processamento...");
-    Console.ReadKey();
-
+Console.WriteLine(aluno.Nome + " " + aluno.Idade);
