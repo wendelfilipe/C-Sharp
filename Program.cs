@@ -1,11 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Loop for");
+Console.WriteLine("Arrays 1");
 
-for(int i = 0, j = 0; i+j <= 20; i++, j++)
-{
-    Console.WriteLine($"i = {i} e j = {j}");
-}
 
-Console.WriteLine("\nFim do processamento...");
-    Console.ReadKey();
+int[] ints = {1, 2, 3};
 
+string[] strings = {"Maria", "Ana"};
+
+Console.WriteLine($"{strings[0]} é {ints[0]}");
