@@ -1,11 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Loop for");
+Console.WriteLine("Multidimentional Arrays");
 
-for(int i = 0, j = 0; i+j <= 20; i++, j++)
-{
-    Console.WriteLine($"i = {i} e j = {j}");
-}
+int[,] ints = new int[3,3];
 
-Console.WriteLine("\nFim do processamento...");
-    Console.ReadKey();
+ints[0,0] = 1;
+ints[0,1] = 2;
+ints[2,2] = 3;
 
+Console.WriteLine(ints[0,0]);
+Console.WriteLine(ints[0,1]);
+Console.WriteLine(ints[2,2]);
