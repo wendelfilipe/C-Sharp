@@ -1,18 +1,20 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Collections;
 
-Console.WriteLine("ArrayList");
+Console.WriteLine("ArrayList 2");
 
-ArrayList lista = new();
-
-var list = new ArrayList();
-
-list.Add("Paulo");
-list.Add(10);
-
-var list2 = new ArrayList()
+ArrayList lista = new()
 {
-    "Paulo segunda", 11, 18.00
+    "Maria", 5 , true
 };
 
-Console.WriteLine(list2[0]);
+int[] lista1 = {1, 2, 3};
+
+lista.AddRange(lista1);
+
+lista.InsertRange(2, lista1);
+
+foreach(var list in lista)
+{
+    Console.WriteLine(list);
+}
