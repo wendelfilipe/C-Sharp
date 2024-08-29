@@ -3,16 +3,18 @@ using System.Collections;
 
 Console.WriteLine("ArrayList 2");
 
-ArrayList lista = new()
+var lista = new ArrayList()
 {
-    "Maria", 5 , true
+    "Maria", 5 , true, false, 6.0, 5, 0, 89, 0, 45, 0, 0
 };
 
-int[] lista1 = {1, 2, 3};
 
-lista.AddRange(lista1);
+lista.Remove(0);
 
-lista.InsertRange(2, lista1);
+lista.RemoveAt(4);
+
+lista.RemoveRange(0, 2);
+
 
 foreach(var list in lista)
 {
