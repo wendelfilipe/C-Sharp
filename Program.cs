@@ -1,34 +1,35 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Collections;
 
-Console.WriteLine("ArrayList 4");
+Console.WriteLine("List<T>");
 
-var lista = new ArrayList()
-{
-    "Maria", 5 , true, false, 6.0, 5, 0, 89, 0, 45, 0, 0
-};
-
-var lista2 = new ArrayList()
+var lista = new List<string>()
 {
     "Maria", "Ana", "Bruna", "Carol", "Thais"
 };
 
-lista2.Sort();
+var lista2 = new List<int>()
+{
+    1, 2, 3, 4, 5, 6, 7
+};
 
-var res = lista2.Contains("Maria");
+var addNome = Console.ReadLine();
 
-lista2.Clear();
 
-lista.Remove(0);
+lista.Add(addNome);
 
-lista.RemoveAt(4);
+lista.Sort();
 
-lista.RemoveRange(0, 2);
+lista2.Remove(6);
+lista2.RemoveAt(4);
+lista2.RemoveRange(0, 3);
 
+foreach(var list in lista)
+{
+    Console.WriteLine(list);
+}
 
 foreach(var list in lista2)
 {
     Console.WriteLine(list);
 }
-
-Console.WriteLine(res);
