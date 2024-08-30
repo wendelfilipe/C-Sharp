@@ -5,31 +5,33 @@ Console.WriteLine("List<T>");
 
 var lista = new List<string>()
 {
-    "Maria", "Ana", "Bruna", "Carol", "Thais"
+    "Maria", "Ana", "Bruna", "Carol", "Thais", "Wendel"
 };
 
-var lista2 = new List<int>()
+var name = Console.ReadLine();
+
+var nomes = lista.Find(l => l.Contains('n'));
+Console.WriteLine (nomes);
+
+var names2 = lista.FindLast(l => l.Contains('a'));
+Console.WriteLine(names2);
+
+var names3 = lista.FindIndex(l => l.Contains('a'));
+Console.WriteLine($"indice = {names3} item = {lista[names3]}");
+
+var names4 = lista.FindLastIndex(l => l.Contains('a'));
+Console.WriteLine($"indice = {names4} item = {lista[names4]}");
+
+var names5 = lista.FindAll(l => l.Contains(name.ToLower()));
+
+foreach(var names in names5)
 {
-    1, 2, 3, 4, 5, 6, 7
-};
-
-var addNome = Console.ReadLine();
-
-
-lista.Add(addNome);
-
-lista.Sort();
-
-lista2.Remove(6);
-lista2.RemoveAt(4);
-lista2.RemoveRange(0, 3);
-
-foreach(var list in lista)
-{
-    Console.WriteLine(list);
+    Console.WriteLine(names);
 }
 
-foreach(var list in lista2)
+
+
+bool Procura(string item)
 {
-    Console.WriteLine(list);
+    return item.Contains('n');
 }
