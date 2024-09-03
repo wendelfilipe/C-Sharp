@@ -1,11 +1,25 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Loop for");
+using C_;
 
-for(int i = 0, j = 0; i+j <= 20; i++, j++)
-{
-    Console.WriteLine($"i = {i} e j = {j}");
-}
+Console.WriteLine("Upcasting e Downcasting");
 
-Console.WriteLine("\nFim do processamento...");
-    Console.ReadKey();
+// upcasting
+Circulo circulo = new Circulo(20, 20);
+Forma forma = circulo;
+
+forma.DesenharForma();
+
+// Downcasting
+
+Circulo c = (Circulo)forma;
+
+c.DesenharForma();
+c.PintarCirculo();
+
+Console.WriteLine(c == forma);
+Console.WriteLine(c == circulo);
+
+
+
+
 
