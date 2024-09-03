@@ -1,11 +1,24 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Loop for");
+Console.WriteLine("Sealed");
 
-for(int i = 0, j = 0; i+j <= 20; i++, j++)
+Cliete cli = new();
+
+
+class Pessoa
 {
-    Console.WriteLine($"i = {i} e j = {j}");
+    protected string? Name { get; set; }
+
+    protected virtual void ExibeNome()
+    {
+        Console.WriteLine($"Meu nome é {Name}");
+    }
 }
 
-Console.WriteLine("\nFim do processamento...");
-    Console.ReadKey();
+class Cliete : Pessoa
+{
+    sealed protected override void ExibeNome()
+    {
+        Console.WriteLine($"\nNome do Cliente é {Name}");
+    }
 
+}
