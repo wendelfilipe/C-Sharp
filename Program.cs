@@ -1,11 +1,28 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Loop for");
+using C_;
 
-for(int i = 0, j = 0; i+j <= 20; i++, j++)
-{
-    Console.WriteLine($"i = {i} e j = {j}");
-}
+Console.WriteLine("Classe Abstrata");
 
-Console.WriteLine("\nFim do processamento...");
-    Console.ReadKey();
+
+Console.WriteLine("\nInforme o valor do lado do quadrado");
+var lado = Convert.ToInt32(Console.ReadLine());
+
+
+Quadrada quadrada = new Quadrada(lado);
+
+Console.WriteLine(quadrada.Descricao());
+
+Console.WriteLine("\nInfome a cor da figura");
+quadrada.Cor = Console.ReadLine();
+
+
+quadrada.CalcularArea();
+quadrada.CalcularPerimentro();
+
+Console.WriteLine($"\nArea do quadrado : {quadrada.Area} m2");
+Console.WriteLine($"\nPerimentro do quadrado : {quadrada.Perimetro} m");
+
+Console.WriteLine($"\nCor do quadrado : {quadrada.Cor}");
+
+
 
