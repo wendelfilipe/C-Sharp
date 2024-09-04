@@ -1,11 +1,38 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Loop for");
+using C_;
 
-for(int i = 0, j = 0; i+j <= 20; i++, j++)
+// Polimorfismo por Henraça
+Console.WriteLine("Polimorfismo");
+
+var figuras = new List<Figura>
 {
-    Console.WriteLine($"i = {i} e j = {j}");
+    new Circulo(),
+    new Triangulo()
+};
+
+foreach (var figura in figuras)
+{
+    figura.Desenhar();
 }
 
-Console.WriteLine("\nFim do processamento...");
-    Console.ReadKey();
 
+// Polimorfismo Static por sobrecarga de metodo
+
+var calc = new Calcular();
+
+Console.WriteLine(calc.Somar(1,2));
+Console.WriteLine(calc.Somar(1,2,3));
+
+
+class Calcular
+{
+    public int Somar(int num1, int num2)
+    {
+        return num1 + num2;
+    }
+
+    public int Somar(int num1, int num2, int num3)
+    {
+        return num1 + num2 + num2;
+    }
+}
