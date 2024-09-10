@@ -1,45 +1,29 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Stack II");
+﻿string[] cursos = {"c#", "Python", "Java"};
+Queue<string> fila1 = new Queue<string>(cursos);
 
-EditorTexto editor = new EditorTexto();
+Console.WriteLine("No. de Elementos na fila 1 : " + fila1.Count());
 
-Console.WriteLine("\n Digitando...");
+ExibirFila(fila1);
+fila1.Enqueue(".NET MAUI");
+ExibirFila(fila1);
 
-editor.DigitarChar('S');
-editor.DigitarChar('t');
-editor.DigitarChar('a');
-editor.DigitarChar('c');
-editor.DigitarChar('q');
+Console.WriteLine("\n- Obtem o primeiro item da fila com Peek");
+var elemento = fila1.Peek();
+Console.WriteLine(elemento);
 
-Console.WriteLine("\nFazendo o Undo... \n");
-editor.Undo();
-editor.Undo();
+Console.WriteLine("\n- Metodo Dequeue - remove item do inicio da fila");
+fila1.Dequeue();
+ExibirFila(fila1);
 
-Console.WriteLine("\nRedigitando ... \n");
-editor.DigitarChar('c');
-editor.DigitarChar('k');
+Console.WriteLine("\n- Metodo Clear");
+fila1.Clear();
+ExibirFila(fila1);
 
 
-public class EditorTexto
+static void ExibirFila<T>(IEnumerable<T> fila1)
 {
-    private Stack<char> undoStack = new Stack<char>();
-    private string texto = "";
-
-    public void DigitarChar(char c)
-    {
-        texto += c;
-        undoStack.Push(c);
-        Console.WriteLine($"Texto : {texto}");
-    }
-
-    public void Undo()
-    {
-        if(undoStack.Count() > 0)
-        {
-            char ultimoChar = undoStack.Pop();
-            texto = texto.Substring(0, texto.Length - 1);
-            Console.WriteLine($"Texto : {texto}");
-        }
-    }
+    Console.WriteLine();
+    foreach (var item in fila1)
+        Console.WriteLine(item);
 }
 
