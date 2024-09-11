@@ -1,27 +1,15 @@
 ﻿
-Console.WriteLine("Delegate Multicast");
+Console.WriteLine("Metodo Anônimo");
 
-MeuDelegate delegateMulticast = new MeuDelegate(Metodo1);
-delegateMulticast += Metodo2;
-delegateMulticast += Metodo3;
+List<string> nomes = new List<string>();
+nomes.Add("Maria");
+nomes.Add("Miriam");
+nomes.Add("Paulo");
+nomes.Add("Carlos");
 
-delegateMulticast("Ola");
-
-delegateMulticast -= Metodo3;
-
-delegateMulticast("Ola");
-
-static void Metodo1(string mensagem)
+string resultado = nomes.Find(delegate (string nome)
 {
-    Console.WriteLine("Método 1: " + mensagem);
-}
-static void Metodo2(string mensagem)
-{
-    Console.WriteLine("Métedo 2: " + mensagem);
-}
-static void Metodo3(string mensagem)
-{
-    Console.WriteLine("Métedo 3: " + mensagem);
-}
+    return nome.Equals("Paulo");
+});
 
-public delegate void MeuDelegate(string mensagem);
+Console.WriteLine(resultado);
