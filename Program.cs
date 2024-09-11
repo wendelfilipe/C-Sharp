@@ -1,24 +1,27 @@
-﻿// See https://aka.ms/new-console-template for more information
-using C_;
+﻿
+Console.WriteLine("Delegate Multicast");
 
-Console.WriteLine("Delegates");
+MeuDelegate delegateMulticast = new MeuDelegate(Metodo1);
+delegateMulticast += Metodo2;
+delegateMulticast += Metodo3;
 
-// DelegateCalc calc = new DelegateCalc(Calculadora.Somar);
-// var result = calc.Invoke(20, 30);
-// Console.WriteLine(result);
+delegateMulticast("Ola");
 
+delegateMulticast -= Metodo3;
 
-DelegateCalc calc2 = Calculadora.Somar;
-var result2 = calc2(20, 30);
-Console.WriteLine(result2);
+delegateMulticast("Ola");
 
-DelegateCalc calc3 = Calculadora.Multiplicar;
-var result3 = calc3(20, 30);
-Console.WriteLine(result3);
+static void Metodo1(string mensagem)
+{
+    Console.WriteLine("Método 1: " + mensagem);
+}
+static void Metodo2(string mensagem)
+{
+    Console.WriteLine("Métedo 2: " + mensagem);
+}
+static void Metodo3(string mensagem)
+{
+    Console.WriteLine("Métedo 3: " + mensagem);
+}
 
-
-// DelegateCalc calc3 = (float x, float y) => Calculadora.Somar(x, y);
-// var result3 = calc3(20, 30);
-// Console.WriteLine(result3);
-
-public delegate float DelegateCalc(float x , float y);
+public delegate void MeuDelegate(string mensagem);
