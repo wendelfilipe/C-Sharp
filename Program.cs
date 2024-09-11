@@ -1,12 +1,17 @@
 ﻿
-Console.WriteLine("Metodo Anônimo com expressao lambda");
+Console.WriteLine("Delegate Predicate");
 
-List<string> nomes = new List<string>();
-nomes.Add("Maria");
-nomes.Add("Miriam");
-nomes.Add("Paulo");
-nomes.Add("Carlos");
+Console.WriteLine("\nInforme Um numero inteiro");
+int numero = Convert.ToInt32(Console.ReadLine());
 
-string resultado = nomes.Find(nome => nome.Equals("Paulo"));
 
-Console.WriteLine(resultado);
+Predicate<int> predicate = x => x % 2 == 0;
+
+if(predicate(numero))
+{
+    Console.WriteLine($"O numero { numero } é PAR");
+}
+else
+{
+    Console.WriteLine($"O numero { numero } é Impar ");
+}
