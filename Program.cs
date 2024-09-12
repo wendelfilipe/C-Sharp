@@ -1,9 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Delegate Action");
 
-var numero = Convert.ToInt32(Console.ReadLine());
+var numero = Convert.ToDouble(Console.ReadLine());
 
+Func<double, double> raiz = x => Math.Sqrt(x);
 
-Action<int> dobra = x => Console.WriteLine(x * 2);
+Console.WriteLine(raiz(numero));
 
-dobra(numero);
