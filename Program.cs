@@ -1,11 +1,23 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Loop for");
+Console.WriteLine("LINQ");
 
-for(int i = 0, j = 0; i+j <= 20; i++, j++)
+List<string> nomes = new List<string>()
 {
-    Console.WriteLine($"i = {i} e j = {j}");
+    "Ana", "Maria", "Paulo", "Hugo"
+};
+
+var resultado = from m in nomes
+                where m.Contains("o")
+                select m;
+
+ExibirResultado(resultado);
+
+var resultado1 = nomes.Where(nome => nome.Contains("a"));
+
+ExibirResultado(resultado1);
+
+static void ExibirResultado(IEnumerable<string> resultado)
+{
+    foreach(var item in resultado)
+        Console.WriteLine(item);
 }
-
-Console.WriteLine("\nFim do processamento...");
-    Console.ReadKey();
-
