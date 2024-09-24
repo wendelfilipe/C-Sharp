@@ -1,17 +1,39 @@
-﻿// See https://aka.ms/new-console-template for more information
-using C_;
+﻿
+Console.WriteLine("File info");
 
-Console.WriteLine("Construtor estático");
+var caminhoOrigem = @"C:/Users/wendelfilipe/Documents/estudos/poesia.txt";
+var caminhoDestino = @"C:\Users\wendelfilipe\Documents\estudos\txt\poesia.txt";
+var caminhoCopia = @"C:\Users\wendelfilipe\Documents\estudos\poesia_copia.txt";
 
-Pessoa p1 = new(19,"Maria");
+FileInfo arquivoOrigem = new FileInfo(caminhoOrigem);
 
-Console.WriteLine(p1.Name + " - " + p1.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+Console.WriteLine("\nNome do arquivo: " + arquivoOrigem.Name);
 
-Pessoa p2 = new(20, "Manuel");
+Console.WriteLine("\nCaminho completo do arquivo " + arquivoOrigem.FullName);
 
-Console.WriteLine(p2.Name + " - " + p2.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+Console.WriteLine("\nO arquivo é somente leitura " + arquivoOrigem.IsReadOnly);
+
+var diretorioPai = arquivoOrigem.Directory;
+
+Console.WriteLine("\nNome do diretorio " + diretorioPai.Name);
+
+Console.WriteLine("\nTamanho do arquvo " + arquivoOrigem.Length);
+
+Console.WriteLine("\nUltima gravação " + arquivoOrigem.LastWriteTime);
+
+if(arquivoOrigem.Exists)
+{
+    Console.WriteLine($"\nO {caminhoOrigem} arquivo existe. Copiando para {caminhoCopia}");
+    arquivoOrigem.CopyTo(caminhoCopia);
+}
+else
+{
+    Console.WriteLine($"\nO {caminhoOrigem} arquivo não existe.");
+}
+
+Console.WriteLine($"\nMovendo {caminhoOrigem} para a {caminhoDestino}.");
+arquivoOrigem.MoveTo(caminhoDestino);
+
 
 Console.ReadKey();
 
