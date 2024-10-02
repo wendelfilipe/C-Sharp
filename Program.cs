@@ -1,7 +1,7 @@
 ﻿
 Console.WriteLine("File info");
 
-var caminhoOrigem = @"C:/Users/wendelfilipe/Documents/estudos/poesia.txt";
+var caminhoOrigem = @"C:\Users\wendelfilipe\Documents\estudos\poesia.txt";
 var caminhoDestino = @"C:\Users\wendelfilipe\Documents\estudos\txt\poesia.txt";
 var caminhoCopia = @"C:\Users\wendelfilipe\Documents\estudos\poesia_copia.txt";
 
