@@ -1,17 +1,26 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using C_;
 
-Console.WriteLine("Construtor estático");
+Console.WriteLine("Using");
 
-Pessoa p1 = new(19,"Maria");
+string caminhoArquivo = @"C:\Users\wendelfilipe\Documents\estudos\poesia.txt";
 
-Console.WriteLine(p1.Name + " - " + p1.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+try
+{
+    // using FileStream fs = new FileStream(caminhoArquivo, FileMode.Open, FileAccess.Read);
+    using StreamReader leitor = File.OpenText(caminhoArquivo); //new StreamReader(fs);
+      
+    string? linha;
+    while ((linha = leitor.ReadLine()) != null)
+    {
+        Console.WriteLine(linha);
+    }
+       
 
-Pessoa p2 = new(20, "Manuel");
-
-Console.WriteLine(p2.Name + " - " + p2.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+}
+catch (IOException ex)
+{
+    Console.WriteLine(ex.Message);
+}
 
 Console.ReadKey();
 
