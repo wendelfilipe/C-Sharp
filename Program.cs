@@ -1,17 +1,19 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using C_;
 
-Console.WriteLine("Construtor estático");
+Console.WriteLine("LINQ");
 
-Pessoa p1 = new(19,"Maria");
+IList<string> fruntas = new List<string>() {"Banana", "Maça", "Pera", "Laranja", "Uva"};
 
-Console.WriteLine(p1.Name + " - " + p1.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+// query syntax
+var resultado = from f in fruntas
+                where f.Contains('r')
+                select f;
 
-Pessoa p2 = new(20, "Manuel");
+Console.WriteLine(String.Join(" - ", resultado));
 
-Console.WriteLine(p2.Name + " - " + p2.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+//method syntax
+var resultado2 = fruntas.Where(f => f.Contains('r'));
+Console.WriteLine(String.Join(" - ", resultado2));
 
 Console.ReadKey();
 
