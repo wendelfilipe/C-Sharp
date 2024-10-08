@@ -1,19 +1,38 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-Console.WriteLine("LINQ");
+using C_;
 
-IList<string> fruntas = new List<string>() {"Banana", "Maça", "Pera", "Laranja", "Uva"};
+Console.WriteLine("Peradores de projeção");
 
-// query syntax
-var resultado = from f in fruntas
-                where f.Contains('r')
-                select f;
+// IEnumerable<Aluno> alunos = FonteDeDados.GetAlunos().ToList();
 
-Console.WriteLine(String.Join(" - ", resultado));
+// Console.WriteLine("Alunos Notas\n");
 
-//method syntax
-var resultado2 = fruntas.Where(f => f.Contains('r'));
-Console.WriteLine(String.Join(" - ", resultado2));
+// foreach (var aluno in alunos)
+// {
+//     Console.WriteLine($"{aluno.Name} : {aluno.Nota}");
+// }
+
+
+// IEnumerable<string> names = FonteDeDados.GetAlunos().Select(n => n.Name);
+
+// Console.WriteLine("Alunos Notas\n");
+
+// foreach (var name in names)
+// {
+//     Console.WriteLine($"{name}");
+// }
+
+List<Aluno> lista = FonteDeDados.GetAlunos().Select(a => new Aluno(){
+    Name = a.Name,
+    Idade = a.Idade,
+}).ToList();
+
+foreach (var aluno in lista)
+{
+    Console.WriteLine($"{aluno.Name} - {aluno.Idade}");
+}
+
 
 Console.ReadKey();
 
