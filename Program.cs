@@ -1,17 +1,38 @@
 ﻿// See https://aka.ms/new-console-template for more information
+
 using C_;
 
-Console.WriteLine("Construtor estático");
+Console.WriteLine("Peradores de projeção");
 
-Pessoa p1 = new(19,"Maria");
+// IEnumerable<Aluno> alunos = FonteDeDados.GetAlunos().ToList();
 
-Console.WriteLine(p1.Name + " - " + p1.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+// Console.WriteLine("Alunos Notas\n");
 
-Pessoa p2 = new(20, "Manuel");
+// foreach (var aluno in alunos)
+// {
+//     Console.WriteLine($"{aluno.Name} : {aluno.Nota}");
+// }
 
-Console.WriteLine(p2.Name + " - " + p2.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+
+// IEnumerable<string> names = FonteDeDados.GetAlunos().Select(n => n.Name);
+
+// Console.WriteLine("Alunos Notas\n");
+
+// foreach (var name in names)
+// {
+//     Console.WriteLine($"{name}");
+// }
+
+List<Aluno> lista = FonteDeDados.GetAlunos().Select(a => new Aluno(){
+    Name = a.Name,
+    Idade = a.Idade,
+}).ToList();
+
+foreach (var aluno in lista)
+{
+    Console.WriteLine($"{aluno.Name} - {aluno.Idade}");
+}
+
 
 Console.ReadKey();
 
