@@ -4,25 +4,18 @@ using C_;
 
 Console.WriteLine("Operação com conjutos");
 
-// var idadesDistintas = FonteDeDados.GetIdades().Distinct();
+List<int> fonte1 = new List<int>(){1, 2, 3, 4, 5, 6};
+List<int> fonte2 = new List<int>(){1, 3, 5, 8, 9, 10};
 
-// foreach (var idade in idadesDistintas)
-// {
-//     Console.WriteLine($"{idade}");
-// }
+// var result = fonte1.Intersect(fonte2).ToList();
 
-// var nomesDistintos = FonteDeDados.GetNomes().Distinct(StringComparer.OrdinalIgnoreCase);
-// foreach (var nomes in nomesDistintos)
-// {
-//     Console.WriteLine(nomes);
-// }
+var result = (from num in fonte1
+                select num).Intersect(fonte2).ToList();
 
-var alunos = FonteDeDados.GetAlunos().ToList();
-
-var alunosIdadesDistintos =  alunos.DistinctBy(a => a.Idade);
-foreach (var aluno in alunosIdadesDistintos)
+foreach (var item in result)
 {
-    Console.WriteLine(aluno.Name + " " + aluno.Idade);
+    Console.WriteLine(item);
 }
+
 Console.ReadKey();
 
