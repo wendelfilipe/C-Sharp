@@ -2,37 +2,27 @@
 
 using C_;
 
-Console.WriteLine("Peradores de projeção");
+Console.WriteLine("Operação com conjutos");
 
-// IEnumerable<Aluno> alunos = FonteDeDados.GetAlunos().ToList();
+// var idadesDistintas = FonteDeDados.GetIdades().Distinct();
 
-// Console.WriteLine("Alunos Notas\n");
-
-// foreach (var aluno in alunos)
+// foreach (var idade in idadesDistintas)
 // {
-//     Console.WriteLine($"{aluno.Name} : {aluno.Nota}");
+//     Console.WriteLine($"{idade}");
 // }
 
-
-// IEnumerable<string> names = FonteDeDados.GetAlunos().Select(n => n.Name);
-
-// Console.WriteLine("Alunos Notas\n");
-
-// foreach (var name in names)
+// var nomesDistintos = FonteDeDados.GetNomes().Distinct(StringComparer.OrdinalIgnoreCase);
+// foreach (var nomes in nomesDistintos)
 // {
-//     Console.WriteLine($"{name}");
+//     Console.WriteLine(nomes);
 // }
 
-List<Aluno> lista = FonteDeDados.GetAlunos().Select(a => new Aluno(){
-    Name = a.Name,
-    Idade = a.Idade,
-}).ToList();
+var alunos = FonteDeDados.GetAlunos().ToList();
 
-foreach (var aluno in lista)
+var alunosIdadesDistintos =  alunos.DistinctBy(a => a.Idade);
+foreach (var aluno in alunosIdadesDistintos)
 {
-    Console.WriteLine($"{aluno.Name} - {aluno.Idade}");
+    Console.WriteLine(aluno.Name + " " + aluno.Idade);
 }
-
-
 Console.ReadKey();
 
