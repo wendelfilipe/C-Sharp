@@ -1,17 +1,21 @@
 ﻿// See https://aka.ms/new-console-template for more information
+
 using C_;
 
-Console.WriteLine("Construtor estático");
+Console.WriteLine("Operação com conjutos");
 
-Pessoa p1 = new(19,"Maria");
+List<int> fonte1 = new List<int>(){1, 2, 3, 4, 5, 6};
+List<int> fonte2 = new List<int>(){1, 3, 5, 8, 9, 10};
 
-Console.WriteLine(p1.Name + " - " + p1.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+// var result = fonte1.Intersect(fonte2).ToList();
 
-Pessoa p2 = new(20, "Manuel");
+var result = (from num in fonte1
+                select num).Intersect(fonte2).ToList();
 
-Console.WriteLine(p2.Name + " - " + p2.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+foreach (var item in result)
+{
+    Console.WriteLine(item);
+}
 
 Console.ReadKey();
 
