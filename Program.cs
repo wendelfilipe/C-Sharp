@@ -1,17 +1,28 @@
 ﻿// See https://aka.ms/new-console-template for more information
+
 using C_;
 
-Console.WriteLine("Construtor estático");
+Console.WriteLine("Operação com conjutos");
 
-Pessoa p1 = new(19,"Maria");
+// var idadesDistintas = FonteDeDados.GetIdades().Distinct();
 
-Console.WriteLine(p1.Name + " - " + p1.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+// foreach (var idade in idadesDistintas)
+// {
+//     Console.WriteLine($"{idade}");
+// }
 
-Pessoa p2 = new(20, "Manuel");
+// var nomesDistintos = FonteDeDados.GetNomes().Distinct(StringComparer.OrdinalIgnoreCase);
+// foreach (var nomes in nomesDistintos)
+// {
+//     Console.WriteLine(nomes);
+// }
 
-Console.WriteLine(p2.Name + " - " + p2.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+var alunos = FonteDeDados.GetAlunos().ToList();
 
+var alunosIdadesDistintos =  alunos.DistinctBy(a => a.Idade);
+foreach (var aluno in alunosIdadesDistintos)
+{
+    Console.WriteLine(aluno.Name + " " + aluno.Idade);
+}
 Console.ReadKey();
 
