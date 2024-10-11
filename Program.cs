@@ -2,20 +2,56 @@
 
 using C_;
 
-Console.WriteLine("Operação com conjutos");
+Console.WriteLine("ordenação crescente\n");
 
-List<int> fonte1 = new List<int>(){1, 2, 3, 4, 5, 6};
-List<int> fonte2 = new List<int>(){1, 3, 5, 8, 9, 10};
+List<string> nomes = new List<string>(){ "Paulo", "Tarcisio", "Amanda", "Pedro", "Manoel", "Carlos"};
 
-// var result = fonte1.Intersect(fonte2).ToList();
+var lista = nomes.OrderBy(n => n).ToList();
 
-var result = (from num in fonte1
-                select num).Intersect(fonte2).ToList();
-
-foreach (var item in result)
+foreach (var item in lista)
 {
-    Console.WriteLine(item);
+    Console.WriteLine(item + " ");
+}
+Console.WriteLine("\nOdenação descendente\n");
+var lista2 = nomes.OrderByDescending(n => n).ToList();
+
+foreach (var item in lista2)
+{
+    Console.WriteLine(item + " ");
 }
 
-Console.ReadKey();
 
+// ThenBy
+
+var alunos = FonteDeDados.GetAlunos();
+
+var lista3 = alunos.OrderBy(a => a.Name).ToList();
+
+var lista4 = alunos.Where(a => a.Name.Contains("r")).OrderBy(a => a.Name);
+
+var lista5 = alunos.Where(a => a.Name.Contains("r")).OrderBy(a => a.Name).ThenBy(a => a.Idade);
+
+var lista6 = alunos.Where(a => a.Name.Contains("r")).OrderByDescending(a => a.Name).ThenByDescending(a => a.Idade);
+
+foreach (var item in lista3)
+{
+    Console.WriteLine($"{item.Name} - {item.Idade}");
+}
+
+foreach (var item in lista4)
+{
+    Console.WriteLine($"{item.Name} - {item.Idade}");
+}
+
+foreach (var item in lista5)
+{
+    Console.WriteLine($"{item.Name} - {item.Idade}");
+}
+
+foreach (var item in lista6)
+{
+    Console.WriteLine($"{item.Name} - {item.Idade}");
+}
+
+
+Console.ReadKey();
