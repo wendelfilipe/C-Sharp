@@ -1,17 +1,27 @@
 ﻿// See https://aka.ms/new-console-template for more information
+
 using C_;
 
-Console.WriteLine("Construtor estático");
+Console.WriteLine("Aggregate");
 
-Pessoa p1 = new(19,"Maria");
+int[] numeros = {3, 5, 7, 9};
 
-Console.WriteLine(p1.Name + " - " + p1.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+int result = numeros.Aggregate((n1, n2) => n1 * n2);
 
-Pessoa p2 = new(20, "Manuel");
 
-Console.WriteLine(p2.Name + " - " + p2.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+
+var alunos = FonteDeDados.GetAlunos();
+
+string listaAlunos = alunos.Aggregate<Aluno, string>("Nomes :", (semente, aluno) => semente += aluno.Name + ",");
+
+int indice = listaAlunos.LastIndexOf(",");
+listaAlunos = listaAlunos.Remove(indice);
+
+string listaAlunos2 = alunos.Aggregate<Aluno, string, string>(
+    "Nomes :",
+    (sement, aluno) => sement += aluno.Name + ",",
+    result => result.Substring(0, result.Length - 1));
+
+Console.WriteLine(listaAlunos2);
 
 Console.ReadKey();
-
