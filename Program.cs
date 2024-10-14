@@ -18,8 +18,8 @@ int indice = listaAlunos.LastIndexOf(",");
 listaAlunos = listaAlunos.Remove(indice);
 
 string listaAlunos2 = alunos.Aggregate<Aluno, string, string>(
-    "Nomes :", 
-    (sement, aluno) => sement += aluno.Name + ",", 
+    "Nomes :",
+    (sement, aluno) => sement += aluno.Name + ",",
     result => result.Substring(0, result.Length - 1));
 
 Console.WriteLine(listaAlunos2);
