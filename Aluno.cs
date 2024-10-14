@@ -12,6 +12,10 @@ namespace C_
         public int Idade { get; set; }
         
         public int Nota { get; set; }
+
+        public string Sexo { get; set; }
+        
+        
         
         public List<string> Cursos { get; set; } = new List<string>();
     }

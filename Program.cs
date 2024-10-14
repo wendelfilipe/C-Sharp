@@ -2,26 +2,22 @@
 
 using C_;
 
-Console.WriteLine("Aggregate");
+Console.WriteLine("GroupBy");
+var alunos =  FonteDeDados.GetAlunos();
+var grupos = alunos.GroupBy(a => a.Sexo);
 
-int[] numeros = {3, 5, 7, 9};
-
-int result = numeros.Aggregate((n1, n2) => n1 * n2);
-
+var gropo2 = from a in alunos
+            group a by a.Sexo;
 
 
-var alunos = FonteDeDados.GetAlunos();
+foreach (var grupo in grupos)
+{
+    Console.WriteLine($"\nSexo : {grupo.Key} alunos: {grupo.Count()}");
 
-string listaAlunos = alunos.Aggregate<Aluno, string>("Nomes :", (semente, aluno) => semente += aluno.Name + ",");
-
-int indice = listaAlunos.LastIndexOf(",");
-listaAlunos = listaAlunos.Remove(indice);
-
-string listaAlunos2 = alunos.Aggregate<Aluno, string, string>(
-    "Nomes :",
-    (sement, aluno) => sement += aluno.Name + ",",
-    result => result.Substring(0, result.Length - 1));
-
-Console.WriteLine(listaAlunos2);
+    foreach (var aluno in grupo)
+    {
+        Console.WriteLine($"\t{aluno.Name} {aluno.Nota}");
+    }
+}
 
 Console.ReadKey();
