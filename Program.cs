@@ -2,30 +2,19 @@
 
 using C_;
 
-Console.WriteLine("Join");
+Console.WriteLine("Elemento");
 
-using (var context = new AppDbContext())
+var filmes = new List<Filme>
 {
-    var rightJoin = ( from s in context.Setores
-                        join f in context.Funcionarios
-                        on s.Id equals f.SetorId
-                        into SetorFunciGrupo
-                        from funcionario in SetorFunciGrupo.DefaultIfEmpty()
-                        select new
-                        {
-                            NomeFuncionario = funcionario.Name,
-                            CargoFuncionario = funcionario.CargoFuncionario,
-                            NomeSetor = s.Name
-                        }).ToList();
+    new Filme("Titanic", 7),
+    new Filme("De volta para o futuro", 8),
+    new Filme("Mulher Maravilha", 6)
+};
 
-    Console.WriteLine("Funcionaio\t\tCargo\t\t\tSetor");
+var filmeFavorito = new Filme("O quito elemento", 10);
 
-    foreach (var funcionario in rightJoin)
-    {
-        Console.WriteLine($"{funcionario.NomeFuncionario}" + 
-                          $"\t\t {funcionario.CargoFuncionario}" +
-                          $"\t\t {funcionario.NomeSetor}");
-    }
-}
+var filmeAssistir = filmes.Where(f => f.Classificacao >= 9).DefaultIfEmpty(filmeFavorito).First();
+
+Console.WriteLine(filmeAssistir.Name);
 
 Console.ReadKey();
