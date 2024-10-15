@@ -1,17 +1,20 @@
 ﻿// See https://aka.ms/new-console-template for more information
+
 using C_;
 
-Console.WriteLine("Construtor estático");
+Console.WriteLine("Elemento");
 
-Pessoa p1 = new(19,"Maria");
+var filmes = new List<Filme>
+{
+    new Filme("Titanic", 7),
+    new Filme("De volta para o futuro", 8),
+    new Filme("Mulher Maravilha", 6)
+};
 
-Console.WriteLine(p1.Name + " - " + p1.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+var filmeFavorito = new Filme("O quito elemento", 10);
 
-Pessoa p2 = new(20, "Manuel");
+var filmeAssistir = filmes.Where(f => f.Classificacao >= 9).DefaultIfEmpty(filmeFavorito).First();
 
-Console.WriteLine(p2.Name + " - " + p2.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+Console.WriteLine(filmeAssistir.Name);
 
 Console.ReadKey();
-
