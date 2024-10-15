@@ -2,21 +2,29 @@
 
 using C_;
 
-Console.WriteLine("GroupBy");
-var alunos =  FonteDeDados.GetAlunos();
-var grupos = alunos.GroupBy(a => a.Sexo);
+Console.WriteLine("Join");
 
-var gropo2 = from a in alunos
-            group a by a.Sexo;
-
-
-foreach (var grupo in grupos)
+using (var context = new AppDbContext())
 {
-    Console.WriteLine($"\nSexo : {grupo.Key} alunos: {grupo.Count()}");
+    var rightJoin = ( from s in context.Setores
+                        join f in context.Funcionarios
+                        on s.Id equals f.SetorId
+                        into SetorFunciGrupo
+                        from funcionario in SetorFunciGrupo.DefaultIfEmpty()
+                        select new
+                        {
+                            NomeFuncionario = funcionario.Name,
+                            CargoFuncionario = funcionario.CargoFuncionario,
+                            NomeSetor = s.Name
+                        }).ToList();
 
-    foreach (var aluno in grupo)
+    Console.WriteLine("Funcionaio\t\tCargo\t\t\tSetor");
+
+    foreach (var funcionario in rightJoin)
     {
-        Console.WriteLine($"\t{aluno.Name} {aluno.Nota}");
+        Console.WriteLine($"{funcionario.NomeFuncionario}" + 
+                          $"\t\t {funcionario.CargoFuncionario}" +
+                          $"\t\t {funcionario.NomeSetor}");
     }
 }
 
