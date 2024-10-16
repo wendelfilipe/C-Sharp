@@ -1,17 +1,41 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
 using C_;
 
-Console.WriteLine("Construtor estático");
+Console.WriteLine("Elemento");
 
-Pessoa p1 = new(19,"Maria");
+string[] paises = {"US", "UK", "India", "Russia", "China", "Brasil", "Peru"};
 
-Console.WriteLine(p1.Name + " - " + p1.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+var resultado = paises.ToList();
 
-Pessoa p2 = new(20, "Manuel");
+foreach (var pais in paises)
+{
+    Console.WriteLine(pais);
+}
 
-Console.WriteLine(p2.Name + " - " + p2.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+// To List
+var alunos = FonteDeDados.GetAlunos();
+
+var listaAluno = alunos.Where(a => a.Name.Contains("M")).ToList();
+foreach (var aluno in listaAluno)
+{
+    Console.WriteLine($"\n{aluno.Name}");
+}
+
+// To Array
+
+var arrayAluno = alunos.Where(a => a.Name.Contains("M")).ToArray();
+foreach (var aluno in arrayAluno)
+{
+    Console.WriteLine($"\n{aluno.Name}");
+}
+
+// Dictionary
+
+var listaDic = alunos.ToDictionary<Aluno, int>(a => a.Id);
+
+foreach (var chave in listaDic.Keys)
+{
+    Console.WriteLine($"\nChave: {chave}, Valor: {(listaDic[chave] as Aluno).Name}");
+}
 
 Console.ReadKey();
-
