@@ -7,6 +7,8 @@ namespace C_
 {
     public class Aluno
     {
+        public int Id { get; set; }
+
         public string Name { get; set; } = string.Empty;
 
         public int Idade { get; set; }
@@ -14,9 +16,7 @@ namespace C_
         public int Nota { get; set; }
 
         public string Sexo { get; set; }
-        
-        
-        
+                
         public List<string> Cursos { get; set; } = new List<string>();
     }
 }

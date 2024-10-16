@@ -7,18 +7,18 @@ namespace C_
 {
     public class FonteDeDados
     {
-        public static List<Aluno> GetAlunos()
+        public static IEnumerable<Aluno> GetAlunos()
         {
             List<Aluno> alunos = new List<Aluno>()
             {
-                new Aluno() { Name = "Maria", Idade = 22, Nota = 7, Cursos = null, Sexo = "Feminino" },
-                new Aluno() { Name = "Amanda", Idade = 21, Nota = 6, Cursos = null, Sexo = "Feminino" },
-                new Aluno() { Name = "Carlos", Idade = 18, Nota = 9, Cursos = null, Sexo = "Masculino" },
-                new Aluno() { Name = "Julia", Idade = 17, Nota = 4, Cursos = null, Sexo = "Feminino" },
-                new Aluno() { Name = "Alicia", Idade = 17, Nota = 4, Cursos = null, Sexo = "Feminino" },
-                 new Aluno() { Name ="Matheus", Idade = 18, Nota = 9, Cursos = null, Sexo = "Masculino" },
+                new Aluno() { Id = 1, Name = "Maria", Idade = 22, Nota = 7, Cursos = null, Sexo = "Feminino" },
+                new Aluno() { Id = 2,Name = "Amanda", Idade = 21, Nota = 6, Cursos = null, Sexo = "Feminino" },
+                new Aluno() { Id = 3, Name = "Carlos", Idade = 18, Nota = 9, Cursos = null, Sexo = "Masculino" },
+                new Aluno() { Id = 4, Name = "Julia", Idade = 17, Nota = 4, Cursos = null, Sexo = "Feminino" },
+                new Aluno() { Id = 5, Name = "Alicia", Idade = 17, Nota = 4, Cursos = null, Sexo = "Feminino" },
+                new Aluno() { Id = 6, Name ="Matheus", Idade = 18, Nota = 9, Cursos = null, Sexo = "Masculino" },
             };
-            return alunos;
+            return alunos.AsEnumerable();
         }
 
         public static int[] GetIdades()

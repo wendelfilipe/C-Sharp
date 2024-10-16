@@ -1,20 +1,41 @@
-﻿// See https://aka.ms/new-console-template for more information
-
+﻿
 using C_;
 
 Console.WriteLine("Elemento");
 
-var filmes = new List<Filme>
+string[] paises = {"US", "UK", "India", "Russia", "China", "Brasil", "Peru"};
+
+var resultado = paises.ToList();
+
+foreach (var pais in paises)
 {
-    new Filme("Titanic", 7),
-    new Filme("De volta para o futuro", 8),
-    new Filme("Mulher Maravilha", 6)
-};
+    Console.WriteLine(pais);
+}
 
-var filmeFavorito = new Filme("O quito elemento", 10);
+// To List
+var alunos = FonteDeDados.GetAlunos();
 
-var filmeAssistir = filmes.Where(f => f.Classificacao >= 9).DefaultIfEmpty(filmeFavorito).First();
+var listaAluno = alunos.Where(a => a.Name.Contains("M")).ToList();
+foreach (var aluno in listaAluno)
+{
+    Console.WriteLine($"\n{aluno.Name}");
+}
 
-Console.WriteLine(filmeAssistir.Name);
+// To Array
+
+var arrayAluno = alunos.Where(a => a.Name.Contains("M")).ToArray();
+foreach (var aluno in arrayAluno)
+{
+    Console.WriteLine($"\n{aluno.Name}");
+}
+
+// Dictionary
+
+var listaDic = alunos.ToDictionary<Aluno, int>(a => a.Id);
+
+foreach (var chave in listaDic.Keys)
+{
+    Console.WriteLine($"\nChave: {chave}, Valor: {(listaDic[chave] as Aluno).Name}");
+}
 
 Console.ReadKey();
