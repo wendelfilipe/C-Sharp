@@ -1,17 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
-using C_;
+﻿
+Console.WriteLine("Elemento");
 
-Console.WriteLine("Construtor estático");
+List<int> numeros = new  List<int>{1, 2, 3, 4};
 
-Pessoa p1 = new(19,"Maria");
+var numeroNovo = numeros.Prepend(0).ToList();
 
-Console.WriteLine(p1.Name + " - " + p1.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+Console.WriteLine(String.Join(", ", numeros.Append(5)));
 
-Pessoa p2 = new(20, "Manuel");
-
-Console.WriteLine(p2.Name + " - " + p2.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+Console.WriteLine(String.Join(", ", numeros.Prepend(0)));
 
 Console.ReadKey();
-
