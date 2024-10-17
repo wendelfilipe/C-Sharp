@@ -3,39 +3,27 @@ using C_;
 
 Console.WriteLine("Elemento");
 
-string[] paises = {"US", "UK", "India", "Russia", "China", "Brasil", "Peru"};
+var pares = Enumerable.Range(10, 50).Where(x => x % 2 == 0);
 
-var resultado = paises.ToList();
-
-foreach (var pais in paises)
+foreach(int i in pares)
 {
-    Console.WriteLine(pais);
+    Console.Write(i + " ");
 }
 
-// To List
-var alunos = FonteDeDados.GetAlunos();
+var textos = Enumerable.Repeat("Macoratti.net - LINQ", 10);
 
-var listaAluno = alunos.Where(a => a.Name.Contains("M")).ToList();
-foreach (var aluno in listaAluno)
+foreach (String txt in textos)
 {
-    Console.WriteLine($"\n{aluno.Name}");
+    Console.WriteLine(txt);
 }
 
-// To Array
 
-var arrayAluno = alunos.Where(a => a.Name.Contains("M")).ToArray();
-foreach (var aluno in arrayAluno)
+var vazio = Enumerable.Empty<string>();
+
+foreach (var num in vazio)
 {
-    Console.WriteLine($"\n{aluno.Name}");
+    Console.Write($"\n{num}");
 }
 
-// Dictionary
-
-var listaDic = alunos.ToDictionary<Aluno, int>(a => a.Id);
-
-foreach (var chave in listaDic.Keys)
-{
-    Console.WriteLine($"\nChave: {chave}, Valor: {(listaDic[chave] as Aluno).Name}");
-}
 
 Console.ReadKey();
