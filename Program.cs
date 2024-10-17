@@ -1,17 +1,20 @@
-﻿// See https://aka.ms/new-console-template for more information
-using C_;
+﻿
+Console.WriteLine("Operadores de conversão");
 
-Console.WriteLine("Construtor estático");
+int[] numeros = new int[]{1, 2, 3, 4, 5, 6};
 
-Pessoa p1 = new(19,"Maria");
+var result = numeros.AsEnumerable();
 
-Console.WriteLine(p1.Name + " - " + p1.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+var result2 = result.AsQueryable();
 
-Pessoa p2 = new(20, "Manuel");
+foreach (var numero in result)
+{
+    Console.WriteLine(numero + " ");
+}
 
-Console.WriteLine(p2.Name + " - " + p2.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+foreach (var numero in result2)
+{
+    Console.WriteLine(numero + " ");
+}
 
 Console.ReadKey();
-
