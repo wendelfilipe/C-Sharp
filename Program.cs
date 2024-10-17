@@ -1,17 +1,29 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
 using C_;
 
-Console.WriteLine("Construtor estático");
+Console.WriteLine("Elemento");
 
-Pessoa p1 = new(19,"Maria");
+var pares = Enumerable.Range(10, 50).Where(x => x % 2 == 0);
 
-Console.WriteLine(p1.Name + " - " + p1.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+foreach(int i in pares)
+{
+    Console.Write(i + " ");
+}
 
-Pessoa p2 = new(20, "Manuel");
+var textos = Enumerable.Repeat("Macoratti.net - LINQ", 10);
 
-Console.WriteLine(p2.Name + " - " + p2.Idade);
-Console.WriteLine("Idade Minima" + Pessoa.IdadeMinima);
+foreach (String txt in textos)
+{
+    Console.WriteLine(txt);
+}
+
+
+var vazio = Enumerable.Empty<string>();
+
+foreach (var num in vazio)
+{
+    Console.Write($"\n{num}");
+}
+
 
 Console.ReadKey();
-
