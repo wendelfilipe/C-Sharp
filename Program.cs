@@ -1,12 +1,20 @@
 ﻿
-Console.WriteLine("Elemento");
+Console.WriteLine("Operadores de conversão");
 
-List<int> numeros = new  List<int>{1, 2, 3, 4};
+int[] numeros = new int[]{1, 2, 3, 4, 5, 6};
 
-var numeroNovo = numeros.Prepend(0).ToList();
+var result = numeros.AsEnumerable();
 
-Console.WriteLine(String.Join(", ", numeros.Append(5)));
+var result2 = result.AsQueryable();
 
-Console.WriteLine(String.Join(", ", numeros.Prepend(0)));
+foreach (var numero in result)
+{
+    Console.WriteLine(numero + " ");
+}
+
+foreach (var numero in result2)
+{
+    Console.WriteLine(numero + " ");
+}
 
 Console.ReadKey();
